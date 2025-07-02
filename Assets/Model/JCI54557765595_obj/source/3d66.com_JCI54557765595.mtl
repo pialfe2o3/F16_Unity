@@ -1,0 +1,296 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 18.06.2025 08:41:33
+
+newmtl 8093aae4_a953_4dc5_87a5_362f3b4a05b1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-003.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-003.jpg
+
+newmtl 92c48810_f05a_4b96_b6cf_12cc918c1608
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-004.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-004.jpg
+	map_bump ..\textures\3d66-export-JCI54557765595-005.jpg
+	bump ..\textures\3d66-export-JCI54557765595-005.jpg
+
+newmtl 8ba7860a_7a74_4483_9103_1cd301487583
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-006.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-006.jpg
+
+newmtl 54cb376b_2b24_41ff_8243_5b68405ad6ce
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-007.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-007.jpg
+	map_d ..\textures\3d66-export-JCI54557765595-008.jpg
+
+newmtl 88284779_46ab_4ea5_a6b5_cb047350d9ea
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-009.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-009.jpg
+
+newmtl b1d87429_3cf1_454b_8410_d446fc8259fa
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-010.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-010.jpg
+
+newmtl 497e09c5_ef01_4ce9_b892_651844a6245f
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-011.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-011.jpg
+
+newmtl 71a99643_3532_4c42_8e14_9eeed52ece17
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.0118 0.0118 0.0118
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-012.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-012.jpg
+
+newmtl cf2106f0_8a06_41b8_8d89_136c3705cb8f
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-013.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-013.jpg
+
+newmtl e8cf6616_fae9_404a_836f_91b9bbe2f72e
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-014.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-014.jpg
+
+newmtl 2d8ccb1c_c058_418a_9034_7b791c5d85d1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.3098 0.3098 0.3098
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl b359e203_0cdf_4d9e_8f7c_a7899a0cffd0
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.1216 0.1216 0.1216
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-015.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-015.jpg
+
+newmtl ae2543a6_1f97_4443_bc2e_b4d2f3251ce1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-016.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-016.jpg
+	map_d ..\textures\3d66-export-JCI54557765595-017.jpg
+
+newmtl 09d73419_4bb8_4426_9b89_0a6d1fc6cc1a
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-018.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-018.jpg
+	map_bump ..\textures\3d66-export-JCI54557765595-019.jpg
+	bump ..\textures\3d66-export-JCI54557765595-019.jpg
+
+newmtl 7e5a8c77_b679_4b8d_8c10_f6042389fe18
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-020.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-020.jpg
+	map_bump ..\textures\3d66-export-JCI54557765595-021.jpg
+	bump ..\textures\3d66-export-JCI54557765595-021.jpg
+
+newmtl d2fae9d7_5b5b_4d5a_ac26_7e912a97e86e
+	Ns 10.0000
+	Ni 1.5000
+	d 0.0230
+	Tr 0.9770
+	Tf 0.0230 0.0230 0.0230 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl 7d724640_b8e1_4923_b03e_d98706295206
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-022.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-022.jpg
+
+newmtl d746eaa3_cd32_4022_9bbe_11e596c61c99
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-023.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-023.jpg
+
+newmtl 22a9749e_6fe2_49d1_8477_2300f0f8da16
+	Ns 10.0000
+	Ni 1.5000
+	d 0.2275
+	Tr 0.7725
+	Tf 0.2275 0.2275 0.2275 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl 2a8873a3_350d_4650_aab9_14caddbd94d7
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.0039 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl d1ffe7df_aecf_49a5_bce6_329fc664a6ed
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5000 0.5000 0.5000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ..\textures\3d66-export-JCI54557765595-024.jpg
+	map_Kd ..\textures\3d66-export-JCI54557765595-024.jpg

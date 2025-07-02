@@ -1,0 +1,101 @@
+newmtl 6610f61e-c1f2-44f7-a1b5-587821fcff9e
+Kd 0.000 0.000 0.000
+Ks 0.125 0.125 0.125
+Ns 32
+Ke 0.000 0.000 0.000
+
+newmtl 9abf497e-1cca-417a-bdcf-5a9aecd0d796
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/F-16C-PAINT-DEF-R1_d.jpg
+
+newmtl 124543c4-acd3-4bec-97c9-25e4cef3dbef
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/F-16C-PAINT-DEF-L1_d.jpg
+
+newmtl 81efd7c7-347e-4104-a7b0-b1904c015b32
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/EJECTSEAT_d.jpg
+
+newmtl 4a7e37c7-2bc4-4f41-b10a-32ff10e2efb6
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/F-16-soplo-MIL_d.jpg
+
+newmtl 21ca4c62-416d-4458-a6e2-a4299287e3b8
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+d 1
+map_Kd textures/nomera_d.jpg
+map_d textures/nomera_a.png
+
+newmtl aeb7914b-b153-4cd1-b925-8946c840eaf3
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/PILOT-USA-AF-OKRAS_d.jpg
+
+newmtl f9f3a5c3-027a-4434-a679-732478f4f72c
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/F-16C-PAINT-DEF-R1_d.jpg
+
+newmtl 7c5438fa-2c63-42c1-836b-4cd9a161f4c8
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+d 1
+map_Kd textures/TORNADO-FONAR_d.jpg
+map_d textures/TORNADO-FONAR_a.png
+
+newmtl ccc79a00-861a-42dd-a299-aa6c7390398b
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+d 1
+map_Kd textures/F-16_d.jpg
+map_d textures/F-16_a.png
+
+newmtl dcd274be-97d0-4d57-868c-2faaf5e9a907
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/SOPLA-F_d.jpg
+
+newmtl 1c497b21-3d5a-4bac-a990-bf99a4a96ee7
+Kd 0.102 0.102 0.102
+Ks 0.125 0.125 0.125
+Ns 32
+Ke 0.000 0.000 0.000
+
+newmtl 4bab44c0-4ce0-4dda-a7eb-aeeeddcf52db
+Kd 1.000 0.000 0.000
+Ks 0.125 0.125 0.125
+Ns 32
+Ke 0.000 0.000 0.000
+
+newmtl 36dbcd37-54ad-4298-a1cb-431ff80fd97b
+Kd 1.000 1.000 1.000
+Ks 0.125 0.125 0.125
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/PILOT-USA-HOLE_d.jpg
+

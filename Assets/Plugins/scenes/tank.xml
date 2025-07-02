@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VehicleWorld>
+    <Solver type="PSORSolver" iteration="200" />
+    <TrackedVehicle name="">
+        <Position x="0" y="1.5" z="0" />
+        <Rotation x="20" y="0" z="-20" />
+        <Chassis>
+            <Size x="0.5" y="0.2" z="1" />
+            <Mass value="100" />
+        </Chassis>
+        <Engine>
+            <TNPoint T="20" N="0" />
+            <TNPoint T="30" N="50" />
+            <TNPoint T="20" N="100" />
+        </Engine>
+        <Transmission type="MANUAL">
+            <GearRatios>
+                <Ratio value="-0.191424" />
+                <Ratio value="0.124991" />
+                <Ratio value="0.242483" />
+                <Ratio value="0.378644" />
+                <Ratio value="0.632911" />
+                <Ratio value="1" />
+            </GearRatios>
+        </Transmission>
+        <TrackAssemblies>
+            <TrackAssembly shoeLength="0.18" shoeThickness="0.05" shoeMass="2">
+                <Wheel>
+                    <Position x="-0.75" y="-0.1" z="0.9" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.178" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="1" />
+                </Wheel>
+                <Wheel>
+                    <Position x="-0.75" y="-0.3" z="0.45" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="-0.75" y="-0.3" z="0" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="-0.75" y="-0.3" z="-0.45" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="-0.75" y="-0.1" z="-0.9" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.178" />
+                    <Width value="0.15" />
+                    <Mass value="2" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="1" />
+                </Wheel>
+            </TrackAssembly>
+            <TrackAssembly shoeLength="0.18" shoeThickness="0.05" shoeMass="2">
+                <Wheel>
+                    <Position x="0.75" y="-0.1" z="0.9" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.178" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="1" />
+                </Wheel>
+                <Wheel>
+                    <Position x="0.75" y="-0.3" z="0.45" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="0.75" y="-0.3" z="0" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="0.75" y="-0.3" z="-0.45" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.2" />
+                    <Width value="0.15" />
+                    <Mass value="11" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="0" />
+                </Wheel>
+                <Wheel>
+                    <Position x="0.75" y="-0.1" z="-0.9" />
+                    <Rotation x="0" y="0" z="-90" />
+                    <Radius value="0.178" />
+                    <Width value="0.15" />
+                    <Mass value="2" />
+                    <Material friction="1" restitution="0.5" />
+                    <Suspension stiffness="6000" damping="5" isIdler="1" />
+                </Wheel>
+            </TrackAssembly>
+        </TrackAssemblies>
+        <Brake maxBrakeTorque="50" />
+    </TrackedVehicle>
+    <RigidBody name="">
+        <Type>Kinematic</Type>
+        <Shape value="Box">
+            <Size x="10" y="0.1" z="10" />
+        </Shape>
+        <Mass value="0" />
+        <Position x="0" y="0" z="5" />
+        <Rotation x="-0" y="0" z="-0" />
+        <Material friction="1" restitution="0.5" />
+    </RigidBody>
+    <RigidBody name="">
+        <Type>Kinematic</Type>
+        <Shape value="Box">
+            <Size x="5" y="0.1" z="5" />
+        </Shape>
+        <Mass value="0" />
+        <Position x="0" y="0.1" z="0" />
+        <Rotation x="-0" y="0" z="-0" />
+        <Material friction="1" restitution="0.5" />
+    </RigidBody>
+</VehicleWorld>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RigidWorld>
+    <RigidBody name="ground">
+        <Type>Kinematic</Type>
+        <Shape value="Box">
+            <Size  x="10.0" y="0.1" z="10.0"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.0" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube00">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.5" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube001">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.5" z="0.1"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube002">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.5" z="0.2"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube003">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.5" z="0.3"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube004">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.5" z="0.4"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube010">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.6" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube011">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.6" z="0.1"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube012">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.6" z="0.2"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube013">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.6" z="0.3"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube014">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.6" z="0.4"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube020">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.7" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube021">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.7" z="0.1"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube021">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.7" z="0.2"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube023">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.7" z="0.3"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube024">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.7" z="0.4"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube030">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.8" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube031">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.8" z="0.1"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube032">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.8" z="0.2"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube033">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.8" z="0.3"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube034">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.8" z="0.4"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube040">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.9" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube041">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.9" z="0.1"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube042">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.9" z="0.2"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube043">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.9" z="0.3"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+    <RigidBody name="cube044">
+        <Shape value="Capsule">
+            <Size x="0.025" y="0.025" z="0.025"></Size>
+        </Shape>
+        <Mass value="1.0"></Mass>
+        <Position  x="0.0" y="0.9" z="0.4"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.5" restitution="0.5"></Material>
+    </RigidBody>
+</RigidWorld>

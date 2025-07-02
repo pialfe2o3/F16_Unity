@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<VehicleWorld>
+    <Terrain filepath="scenes/simpleTerrain.obj">
+        <Size x="10.0" y="10.0" z="10.0"></Size>
+        <Position  x="0.0" y="5.0" z="0.0"></Position>
+        <Rotation  x="10.0" y="0.0" z="0.0"></Rotation>
+        <WeightMap>
+            <Map friction="2.0" restitution="0.5" filepath="scenes/WeightMap_Grass.png"></Map>
+            <Map friction="2.0" restitution="0.5" filepath="scenes/WeightMap_Dssert.png"></Map>
+        </WeightMap>
+    </Terrain>
+    <!-- <RigidBody name="ground">
+        <Type>Kinematic</Type>
+        <Shape value="Box">
+            <Size  x="50" y="0.25" z="50.0"></Size>
+        </Shape>
+        <Mass value="20.0"></Mass>
+        <Position  x="0.0" y="0.0" z="0.0"></Position>
+        <Rotation  x="0.0" y="0.0" z="0.0"></Rotation>
+        <Material friction="0.8" restitution="0.5"></Material>
+    </RigidBody> -->
+
+    <WheeledVehicle name="gator">
+        <Position x="0.0" y="2.0999999046325684" z="0.0"></Position>
+        <Rotation x="0.0" y="0" z="0.0"></Rotation>
+        <Chassis>
+            <!-- <Size x="274.512329" y="108.787537" z="110.848602"></Size> -->
+            <Size x="2.7451" y="0.8681" z="1.306"></Size>
+            <Mass value="200.0"></Mass>
+        </Chassis>
+        <Engine>
+            <TNPoint T="200" N="0"></TNPoint>
+            <TNPoint T="300" N="50"></TNPoint>
+            <TNPoint T="200" N="100"></TNPoint>
+        </Engine>
+        <Transmission type="MANUAL">
+            <GearRatios>
+                <Ratio value="-0.19139999999999999"/>
+                <Ratio value="0.125"/>
+                <Ratio value="0.24249999999999999"/>
+                <Ratio value="0.37859999999999999"/>
+                <Ratio value="0.63290000000000002"/>
+                <Ratio value="1"/>
+            </GearRatios>
+            <ShiftPoints>
+                <Point min="50" max="70"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+            </ShiftPoints>
+        </Transmission>
+        <Axles>
+            <Axle isSteering="1" isThrottle="0">
+                <Wheel>
+                    <Position x="-1.9982000589370728" y="-0.96509999036788940" z="0.89700001478195190"></Position>
+                    <Rotation x="90" y="0" z="0"></Rotation>
+                    <Radius value="0.46869999170303345"></Radius>
+                    <Width value="0.33500000834465027"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="5.0"></Suspension>
+                </Wheel>
+                <Wheel>
+                    <Position x="-1.9982000589370728" y="-0.96509999036788940" z="-0.89700001478195190"></Position>
+                    <Rotation x="90" y="00" z="0"></Rotation>
+                    <Radius value="0.46869999170303345"></Radius>
+                    <Width value="0.33500000834465027"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="5.0"></Suspension>
+                </Wheel>
+            </Axle>
+            <Axle isSteering="0" isThrottle="1">
+                <Wheel>
+                    <Position x="1.6017999649047852" y="-0.96509999036788940" z="0.89700001478195190"></Position>
+                    <Rotation x="90.0" y="0.0" z="0.0"></Rotation>
+                    <Radius value="0.46869999170303345"></Radius>
+                    <Width value="0.33500000834465027"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="5.0"></Suspension>
+                </Wheel>
+                <Wheel>
+                    <Position x="1.6017999649047852" y="-0.96520000696182251" z="-0.89700001478195190"></Position>
+                    <Rotation x="90" y="0.0" z="0.0"></Rotation>
+                    <Radius value="0.46869999170303345"></Radius>
+                    <Width value="0.33500000834465027"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="5.0"></Suspension>
+                </Wheel>
+            </Axle>
+        </Axles>
+        <Brake maxBrakeTorque="100.0"></Brake>
+        <Driveline maxBias="2.0"></Driveline>
+    </WheeledVehicle>
+
+    <!-- <WheeledVehicle name="new-gator">
+        <Position x="1.0" y="2.0" z="0.0"></Position>
+        <Rotation x="0.0" y="0.0" z="0.0"></Rotation>
+        <Chassis>
+            <Size x="0.5" y="0.3" z="1.0"></Size>
+            <Mass value="200.0"></Mass>
+        </Chassis>
+        <Engine>
+            <TNPoint T="200" N="0"></TNPoint>
+            <TNPoint T="300" N="50"></TNPoint>
+            <TNPoint T="200" N="100"></TNPoint>
+        </Engine>
+        <Transmission type="MANUAL">
+            <GearRatios>
+                <Ratio value="-0.191424"></Ratio>
+                <Ratio value="0.124991"></Ratio>
+                <Ratio value="0.242483"></Ratio>
+                <Ratio value="0.378644"></Ratio>
+                <Ratio value="0.632911"></Ratio>
+                <Ratio value="1.0"></Ratio>
+            </GearRatios>
+            <ShiftPoints>
+                <Point min="50" max="70"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+                <Point min="50" max="100"></Point>
+            </ShiftPoints>
+        </Transmission>
+        <Axles>
+            <Axle isSteering="1" isThrottle="1">
+                <Wheel>
+                    <Position x="-0.65" y="-0.5" z="-0.6"></Position>
+                    <Rotation x="0.0" y="0.0" z="-90.0"></Rotation>
+                    <Radius value="0.3"></Radius>
+                    <Width value="0.2"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="2.0"></Suspension>
+                </Wheel>
+                <Wheel>
+                    <Position x="0.65" y="-0.5" z="-0.6"></Position>
+                    <Rotation x="0.0" y="0.0" z="-90.0"></Rotation>
+                    <Radius value="0.3"></Radius>
+                    <Width value="0.2"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="2.0"></Suspension>
+                </Wheel>
+            </Axle>
+            <Axle isSteering="0" isThrottle="0">
+                <Wheel>
+                    <Position x="-0.65" y="-0.5" z="0.6"></Position>
+                    <Rotation x="0.0" y="0.0" z="-90.0"></Rotation>
+                    <Radius value="0.3"></Radius>
+                    <Width value="0.2"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="2.0"></Suspension>
+                </Wheel>
+                <Wheel>
+                    <Position x="0.65" y="-0.5" z="0.6"></Position>
+                    <Rotation x="0.0" y="0.0" z="-90.0"></Rotation>
+                    <Radius value="0.3"></Radius>
+                    <Width value="0.2"></Width>
+                    <Mass value="10.0"></Mass>
+                    <Material friction="1.0" restitution="0.5"></Material>
+                    <Suspension stiffness="6000.0" damping="2.0"></Suspension>
+                </Wheel>
+            </Axle>
+        </Axles>
+        <Brake maxBrakeTorque="100.0"></Brake>
+        <Driveline maxBias="2.0"></Driveline>
+    </WheeledVehicle> -->
+</VehicleWorld>
