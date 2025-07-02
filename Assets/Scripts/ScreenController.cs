@@ -74,7 +74,7 @@ public class ScreenController : MonoBehaviour
             Vector2 radarPos = offset2D / radius * radarRadius;
 
             // 在UI上生成一个点
-            if (hit.gameObject.name == "pivot_handle" || hit.gameObject.name == "pivot_padel") { continue; }
+            if (hit.gameObject.name == "pivot_handle" || hit.gameObject.name == "pivot_padel" || hit.gameObject.name == "pivot_power") { continue; }
             GameObject dot = Instantiate(point, radarUI.transform);
             dot.GetComponent<RectTransform>().anchoredPosition = radarPos;
         }
