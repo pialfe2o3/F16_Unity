@@ -11,6 +11,7 @@ public class ScreenController : MonoBehaviour
     public TextMeshProUGUI screen2;
     public GameObject radarUI;
     public GameObject point;
+    public GameObject myPos;
     void Start()
     {
         
@@ -49,6 +50,14 @@ public class ScreenController : MonoBehaviour
         Vector3 center = gameObject.transform.position; // 以飞机当前位置为球心
         Collider[] hits = Physics.OverlapSphere(center, radius);
 
+        //更新角度
+        //Vector3 forward = transform.forward; // 你要对齐的方向
+        //Vector2 forward2D = new Vector2(forward.x, forward.z).normalized;
+        //Vector2 xAxis2D = new Vector2(1, 0);
+        //float angle = Vector2.SignedAngle(xAxis2D, forward2D);
+        //// 让 myPos 绕Y轴旋转到与 forward 一致
+        //myPos.transform.rotation = Quaternion.Euler(angle, 0, 0);
+
         //先清理掉旧的
         Transform screen = transform.Find("screen2");
         if (screen != null)
@@ -67,7 +76,7 @@ public class ScreenController : MonoBehaviour
         {
             Vector3 offset = hit.transform.position - gameObject.transform.position;
             // 只取XZ平面
-            Vector2 offset2D = new Vector2(offset.x, offset.z);
+            Vector2 offset2D = new Vector2(offset.z, offset.x);
 
             // 归一化到雷达半径
             float radarRadius = 3.5f; // UI雷达半径（像素）

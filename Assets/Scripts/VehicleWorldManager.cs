@@ -22,40 +22,40 @@ public class VehicleWorldManager : MonoBehaviour
     private IntPtr vehiclePtr;
 
     // DLL函数声明
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern IntPtr VehicleWorld_Create();
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void VehicleWorld_Destroy(IntPtr world);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void VehicleWorld_Load(IntPtr world, string filePath);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void VehicleWorld_Update(IntPtr world, float dt);
         
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern IntPtr VehicleWorld_GetVehicle(IntPtr world, int index);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_SetThrottleInput(IntPtr vehicle, float throttle);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_SetSteeringInput(IntPtr vehicle, float steering);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_SetBrakeInput(IntPtr vehicle, float brake);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_SetGear(IntPtr vehicle, int gear);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern int Vehicle_GetGear(IntPtr vehicle);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_GetPosition(IntPtr vehicle, out float x, out float y, out float z);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngine", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Vehicle_GetRotation(IntPtr vehicle, out float x, out float y, out float z, out float w);
 
     void Start()

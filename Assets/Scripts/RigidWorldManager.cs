@@ -12,33 +12,100 @@ public class RigidWorldManager : MonoBehaviour
 
     private IntPtr worldPtr = IntPtr.Zero;
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern IntPtr RigidWorld_Create();
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void RigidWorld_Destroy(IntPtr world);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void RigidWorld_Load(IntPtr world, string filePath);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void RigidWorld_Save(IntPtr world, string filePath);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void RigidWorld_Update(IntPtr world, float dt);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern int RigidWorld_GetRigidbodyCount(IntPtr world);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern IntPtr RigidWorld_GetRigidbody(IntPtr world, int idx);
+
+    //战机rigidworld基础部分导入
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern IntPtr AircraftWorld_Create();
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void AircraftWorld_Destroy(IntPtr world);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void AircraftWorld_Load(IntPtr world, [MarshalAs(UnmanagedType.LPStr)] string path);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void AircraftWorld_Update(IntPtr world, float dt);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern IntPtr AircraftWorld_GetAircraft(IntPtr world);
+
+    //战机控制接口
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern IntPtr F16_Create();
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_Destroy(IntPtr f16);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_ColdStart(IntPtr f16);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_HotStart(IntPtr f16);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetCurrentStateWorld(
+        IntPtr f16, float x, float y, float z, float vx, float vy, float vz,
+        float roll_RPS, float yaw_RPS, float pitch_RPS,
+        float roll, float yaw, float pitch);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetAtomosphere(
+        IntPtr f16, double h, double t, double a, double ro, double p,
+        double wind_vx, double wind_vy, double wind_vz);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetEngineThrottle(IntPtr f16, float throttle);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetRollControl(IntPtr f16, float aileron);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetPitchControl(IntPtr f16, float elevator);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_SetYawControl(IntPtr f16, float rudder);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_GetPosition(IntPtr f16, out float x, out float y, out float z);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_GetRotation(IntPtr f16, out float x, out float y, out float z, out float w);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_GetVelocity(IntPtr f16, out float vx, out float vy, out float vz);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void getParam(IntPtr f16, uint index, out float tmp);
+
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void F16_Update(IntPtr f16, float dt);
 
 
     // DLL导入刚体位置/旋转
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Rigidbody_GetPosition(IntPtr rigidbody, out float x, out float y, out float z);
 
-    [DllImport("DampsEngineExtern 3", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     private static extern void Rigidbody_GetRotation(IntPtr rigidbody, out float x, out float y, out float z, out float w);
 
     // 你可以根据需要继续添加其它DLL导入声明
