@@ -203,7 +203,7 @@ public class testF16Controller : MonoBehaviour
             !_rollLeftPressed && !_rollRightPressed &&
             !_yawLeftPressed && !_yawRightPressed)
         {
-            ApplyPIDControl(aircraftPtr, false, ref _pidIntegral, ref _pidPrevError);
+            //ApplyPIDControl(aircraftPtr, false, ref _pidIntegral, ref _pidPrevError);
         }
 
         // ¸©Ñö¿ØÖÆ£¨Pitch£©

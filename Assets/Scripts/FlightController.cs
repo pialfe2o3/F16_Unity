@@ -1,6 +1,8 @@
 using System.Runtime.InteropServices;
 using System;
 using UnityEngine;
+using System.Reflection;
+using TMPro;
 
 /// <summary>
 /// 控制飞行器的飞行以及驾驶舱内的视角。
@@ -30,6 +32,17 @@ public class FlightController : MonoBehaviour
     [Tooltip("摄像机垂直方向（俯仰）的最大角度。")]
     public float maxPitchAngle = 80f;
 
+
+    [Header("Camera Zoom Settings")]
+    [SerializeField] private float _zoomSpeed = 5f;          // 缩放灵敏度
+    [SerializeField] private float _minFOV = 30f;           // 最小视角（放大）
+    [SerializeField] private float _maxFOV = 70f;           // 最大视角（默认）
+    [SerializeField] private float _zoomSmoothTime = 0.2f;  // 缩放平滑时间
+    private float _targetFOV;
+    private float _currentZoomVelocity;  // 用于平滑阻尼
+
+    private Camera _mainCamera;          // 主摄像机组件
+
     // 私有变量
     private Transform _cameraTransform;
     private float _pitchInput;
@@ -47,9 +60,16 @@ public class FlightController : MonoBehaviour
     private IntPtr worldPtr = IntPtr.Zero;
     private IntPtr aircraftPtr = IntPtr.Zero;
     //帧计数器
+    private int countNum;
     private int frameCount = 0;
     private bool keep = true;
 
+    public Transform needle1;
+    public Transform needle2;
+    public Transform needle3;
+    public Transform needle4;
+    private GameObject MPD;
+    private Vector3 lastVel;
 
 
     //回调函数
@@ -132,14 +152,14 @@ public class FlightController : MonoBehaviour
     [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     public static extern void F16_SetYawControl(IntPtr f16, float rudder);
 
-    [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void F16_SetZero(IntPtr f16);
+    //[DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
+    //public static extern void F16_SetZero(IntPtr f16);
 
     [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     public static extern void F16_GetPosition(IntPtr f16, out float x, out float y, out float z);
 
     [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void F16_GetRotation(IntPtr f16, out float x, out float y, out float z, out float w);
+    public static extern void F16_GetRotation(IntPtr f16, out float roll, out float pitch, out float yaw);
 
     [DllImport("DampsEngineExtern", CallingConvention = CallingConvention.Cdecl)]
     public static extern void F16_GetVelocity(IntPtr f16, out float vx, out float vy, out float vz);
@@ -162,9 +182,33 @@ public class FlightController : MonoBehaviour
     private static extern void Rigidbody_GetRotation(IntPtr rigidbody, out float x, out float y, out float z, out float w);
 
 
-    private static void OnDllLog(string message)
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    static extern IntPtr LoadLibrary(string dllPath);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+
+    void TestDllLoad()
     {
-        Debug.Log($"[DLL] {message}");
+        // 加载 DLL
+        IntPtr dllHandle = LoadLibrary("DampsEngineExtern.dll");
+        if (dllHandle == IntPtr.Zero)
+        {
+            Debug.LogError($"DLL 加载失败，错误代码: {Marshal.GetLastWin32Error()}");
+            return;
+        }
+
+        // 获取函数地址
+        IntPtr funcPtr = GetProcAddress(dllHandle, "F16_GetPosition");
+        if (funcPtr == IntPtr.Zero)
+        {
+            Debug.LogError($"函数未找到，错误代码: {Marshal.GetLastWin32Error()}");
+        }
+        else
+        {
+            Debug.Log($"函数地址: 0x{funcPtr.ToInt64():X}");
+        }
     }
 
 
@@ -183,8 +227,9 @@ ref float[] prevError)
         if (!hasManualInput)
         {
             // 获取当前角速度
-            F16_GetAngularVelocity(f16Instance, out float p, out float q, out float r);
-            float[] rates = { p, q, r };
+            //F16_GetAngularVelocity(f16Instance, out float p, out float q, out float r);
+            //float[] rates = { p, q, r };
+            float[] rates = { 0, 0, 0 };
             float[] commands = new float[3];
 
             for (int i = 0; i < 3; i++)
@@ -217,6 +262,13 @@ ref float[] prevError)
         // 请确保您的层级结构是：飞机(挂载此脚本) -> Cockpit -> Main Camera
         _cameraTransform = transform.Find("F16 Camera");
 
+        needle1 = transform.Find("rpm").Find("neddle");
+        needle2 = transform.Find("up").Find("neddle");
+        needle3 = transform.Find("direction").Find("neddle");
+        needle4 = transform.Find("timer").Find("time");
+
+        MPD = transform.Find("MPD").gameObject;
+
         if (_cameraTransform == null)
         {
             Debug.LogError("错误：在 'Cockpit' 子物体下没有找到名为 'Main Camera' 的摄像机！请检查层级结构和名称。");
@@ -226,6 +278,7 @@ ref float[] prevError)
             // 锁定并隐藏鼠标光标，以获得更好的体验
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            _mainCamera = _cameraTransform.GetComponent<Camera>();
         }
 
         //接入物理引擎
@@ -238,11 +291,14 @@ ref float[] prevError)
         // 3. 获取飞机对象
         aircraftPtr = AircraftWorld_GetAircraft(worldPtr);
 
-        F16_SetCurrentStateWorld(aircraftPtr,0,3,0,0,0,0,0,0,0,0,0,0);
+        //F16_SetCurrentStateWorld(aircraftPtr,0,3,0,0,0,0,0,0,0,0,0,0);
+        //if (aircraftPtr != null)
+        //{
+        //    Debug.Log(111);
+        //}
+        F16_HotStart(aircraftPtr);
 
-        F16_SetRollControl(aircraftPtr, 0);
-
-        F16_SetPitchControl(aircraftPtr, 0);
+        lastVel=new Vector3(0,0,0);
     }
 
     void Update()
@@ -253,21 +309,26 @@ ref float[] prevError)
         //// 引擎处理(模拟)
         HandleInput();
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            keep = false;
-        }
-        if (Input.GetKey(KeyCode.O))
-        {
-            keep = true;
-        }
+        //if (Input.GetKey(KeyCode.P))
+        //{
+        //    keep = false;
+        //}
+        //if (Input.GetKey(KeyCode.O))
+        //{
+        //    keep = true;
+        //}
 
-        if (frameCount++ >= 10)
-        {
-            // 处理飞行移动
-            HandleMovement();
-            frameCount = 0;
-        }
+        countNum++;
+        //if (frameCount++ >= 2)
+        //{
+        //    // 处理飞行移动
+        HandleMovement();
+        //    frameCount = 0;
+        //}
+
+        //数据
+        //F16MPDController mpdController=MPD.GetComponent<F16MPDController>();
+        //mpdController.UpdateFlightData();
 
         // 处理视角转动
         if (_cameraTransform != null)
@@ -275,6 +336,15 @@ ref float[] prevError)
             HandleCameraRotation();
         }
     }
+    float CalculateYaw(float qx, float qy, float qz, float qw)
+    {
+        float yaw = (float)Math.Atan2(
+            2.0f * (qw * qz + qx * qy),
+            1.0f - 2.0f * (qy * qy + qz * qz)
+        );
+        return yaw;
+    }
+
 
     /// 获取所有用于飞行的玩家输入。
     void GetFlightInputs()
@@ -305,33 +375,37 @@ ref float[] prevError)
         {
             device.handle_up(0, 0);//控制各个舵翼
                                    // TODO:接入DampsEngine，获取信息
-            ApplyPIDControl(aircraftPtr, false, ref _pidIntegral, ref _pidPrevError);
+            //ApplyPIDControl(aircraftPtr, false, ref _pidIntegral, ref _pidPrevError);
             rollSpeed = 0;
             pitchSpeed = 0;
 
         }
-        if (_rollInput > 0.01f)
+        if (_pitchInput <- 0.01f)
         {
-            device.handle_up(4, 3);
+            Debug.Log("up");
+            device.handle_up(4, 2);
             pitchSpeed = 100f;
-            F16_SetPitchControl(aircraftPtr, -1);  // 机头上仰
+            F16_SetPitchControl(aircraftPtr, 0.2f);  // 机头上仰
         }
-        if (_rollInput < -0.01f)
+        if (_pitchInput >0.01f)
         {
-            device.handle_up(4, 4);
-            pitchSpeed = 100f;
-            F16_SetPitchControl(aircraftPtr, 1); // 机头下俯
-        }
-        if (_pitchInput > 0.01f)
-        {
-            F16_SetRollControl(aircraftPtr, -1);  // 左滚
+            Debug.Log("down");
             device.handle_up(4, 1);
+            pitchSpeed = 100f;
+            F16_SetPitchControl(aircraftPtr, -0.2f); // 机头下俯
+        }
+        if (_rollInput <- 0.01f)
+        {
+            Debug.Log("left");
+            F16_SetRollControl(aircraftPtr, 0.2f);  // 左滚
+            device.handle_up(4, 4);
             rollSpeed = 100f;
         }
-        if (_pitchInput < -0.01f)
+        if (_rollInput>0.01f)
         {
-            F16_SetRollControl(aircraftPtr, 1);  // 右滚
-            device.handle_up(4, 2);
+            Debug.Log("right");
+            F16_SetRollControl(aircraftPtr, -0.2f);  // 右滚
+            device.handle_up(4, 3);
             rollSpeed = 100f;
         }
 
@@ -339,13 +413,13 @@ ref float[] prevError)
         {
             device.power_push(0);//控制油门踏板
             forwardSpeed = 0;
-            F16_SetEngineThrottle(aircraftPtr, 0);
+            F16_SetEngineThrottle(aircraftPtr, 0.0f);
         }
         if (_thrustInput > 0.01f)
         {
             device.power_push(5);
             forwardSpeed = -300f;
-            F16_SetEngineThrottle(aircraftPtr, 1);
+            F16_SetEngineThrottle(aircraftPtr, 1.0f);
         }
 
         if (_yawInput == 0)
@@ -361,41 +435,62 @@ ref float[] prevError)
     /// 每一帧通过transform简单更新飞机姿态位置，对于输入信号的处理另开一个接口，这里只接受飞机的各个速度信息做出反应
     void HandleMovement()
     {
-        // 后续直接从dampsEngine中获取位置信息
-        //// 应用推力向前移动
-        //transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime, Space.Self);
-
-        //// 应用从机翼向上的升力
-        //transform.Translate(Vector3.up * upSpeed * Time.deltaTime, Space.Self);
-
-        //// 应用俯仰（上下旋转）
-        //transform.Rotate(Vector3.right, _pitchInput * pitchSpeed * Time.deltaTime, Space.Self);
-
-        //// 应用翻转（左右倾斜）
-        //transform.Rotate(Vector3.forward, _rollInput * rollSpeed * Time.deltaTime, Space.Self);
-
-        //// 应用偏航（左右转弯）
-        //transform.Rotate(Vector3.up, _yawInput * yawSpeed * Time.deltaTime, Space.Self);
-        float dt = Time.deltaTime*frameCount;
+        float dt = Time.deltaTime;
+        dt = 0.01f;
+        //Debug.Log(dt);
 
         // 1. 更新世界
         AircraftWorld_Update(worldPtr, dt);
 
-        float x, y, z;
+        float x = float.NaN, y = float.NaN, z = float.NaN; // 初始化为非法值
         F16_GetPosition(aircraftPtr, out x, out y, out z);
-        float qx, qy, qz, qw;
-        F16_GetRotation(aircraftPtr, out qx, out qy, out qz, out qw);
+        float roll,pitch,yaw;
+        F16_GetRotation(aircraftPtr, out roll, out pitch, out yaw);
 
         // 3. 更新Unity中飞机模型的位置和旋转
-        //Debug.Log(qx);
-        //Debug.Log(qy);
-        //Debug.Log(qz);
-        //Debug.Log(qw);
-        transform.position = new Vector3(x/5, y, z);
+        Debug.Log("x:"+roll+"y:"+pitch+"z:"+yaw);
+        transform.position = new Vector3(x, y, z);
         Quaternion y90 = Quaternion.Euler(0, 0, 0);
-        Quaternion model = new Quaternion(qz, qy, qx, qw);
-        if(keep)transform.rotation = y90*model;
+        Quaternion model = Quaternion.Euler(
+            Mathf.Rad2Deg * roll,  
+            Mathf.Rad2Deg * yaw,    
+            Mathf.Rad2Deg * pitch   
+        );
+        transform.rotation = model;
 
+        float vx, vy, vz;
+        F16_GetVelocity(aircraftPtr, out vx, out vy, out vz);
+        Vector3 speed = new Vector3(vx,vy,vz);
+        //Debug.Log("speed" + speed);
+        lastVel=transform.position;
+
+        float yawDegrees = 1 * (180.0f / (float)Math.PI);
+        //Debug.Log(yawDegrees);
+        F16MPDController mpdController = MPD.GetComponent<F16MPDController>();
+        float t;
+        //getParam(aircraftPtr, 2005, out t);
+        t = (_thrustInput+UnityEngine.Random.Range(0f, 0.02f))*90;
+        mpdController.UpdateFlightData(yaw,y,speed.magnitude,t);
+
+        NeedleController needleController1 = needle1.GetComponent<NeedleController>();
+        needleController1.SetNeedlePosition(speed.x);
+        NeedleController needleController2 = needle2.GetComponent<NeedleController>();
+        needleController2.SetNeedlePosition(y);
+        NeedleController needleController3 = needle3.GetComponent<NeedleController>();
+        needleController3.SetNeedlePosition(yawDegrees);
+        TextMeshProUGUI tmpText = needle4.GetComponent<TextMeshProUGUI>();
+        float time = countNum * 0.02f;
+        TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+        //Debug.Log(timeSpan);
+        string formattedTime = string.Format("{0:D2}:{1:D2}",
+            timeSpan.Minutes,
+            timeSpan.Seconds);
+        if (tmpText != null)
+        {
+            tmpText.text = formattedTime; // 修改文本内容
+        }
+
+        //Debug.Log(getParam());
     }
 
 
@@ -416,6 +511,22 @@ ref float[] prevError)
 
         // 应用旋转。这将只旋转摄像机本身，使其视角相对于飞机而改变。
         _cameraTransform.localRotation = Quaternion.Euler(_cameraPitch, _cameraYaw, 0f);
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0f)
+        {
+            // 滚轮向上：缩小FOV（放大视角），向下：增大FOV（缩小视角）
+            _targetFOV -= scroll * _zoomSpeed;
+            _targetFOV = Mathf.Clamp(_targetFOV, _minFOV, _maxFOV);
+        }
+
+        // 平滑过渡到目标FOV
+        _mainCamera.fieldOfView = Mathf.SmoothDamp(
+            _mainCamera.fieldOfView,
+            _targetFOV,
+            ref _currentZoomVelocity,
+            _zoomSmoothTime
+        );
+
     }
 
     //设置各角度速度大小的接口

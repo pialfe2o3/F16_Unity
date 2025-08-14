@@ -34,14 +34,13 @@ public class ScreenController : MonoBehaviour
         float rotation_x = gameObject.transform.eulerAngles.x;
         float rotation_y = gameObject.transform.eulerAngles.y;
         float rotation_z = gameObject.transform.eulerAngles.z;
-        screen1.text = "position:\n" +
-            "x:" + (int)position_x + "\n" +
-            "y:" + (int)position_y + "\n" +
-            "z:" + (int)position_z;
-        screen2.text = "angle:\n" +
-            "pitch:" + (int)rotation_x + "\n" +
-            "yaw:" + (int)rotation_y + "\n" +
-            "roll:" + (int)rotation_z;
+        screen1.text = "Delta-\n" +
+            "¦¤X " + $"{position_x.ToString("000")}" + "M |\n" +
+            "¦¤Y " + $"{position_y.ToString("000")}" + "M |\n" +
+            "¦¤Z " + $"{position_z.ToString("000")}" + "M |";
+        screen2.text = "LPS:ON\n" +
+            "RAD:ON\n" +
+            "FCS:OFF\n";
     }
 
     public void SetRadarUI()
